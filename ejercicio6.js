@@ -12,8 +12,13 @@ const peliculas = [
 ];
 
 //Mostrar las 15 películas en la consola
-for (let i = 0; i < peliculas.length; i++) {
-  for (let j = 0; j < peliculas[i].length; j++) {
-    console.log(peliculas[i][j]);
-  }
-}
+// for (let i = 0; i < peliculas.length; i++) {
+//   for (let j = 0; j < peliculas[i].length; j++) {
+//     console.log(peliculas[i][j]);
+//   }
+// }
+peliculas.forEach((geeneroPeliculas) => {
+  geeneroPeliculas.forEach((peliculas) => {
+    console.log(peliculas);
+  });
+});
