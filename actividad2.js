@@ -1,17 +1,19 @@
+
 const computadora = {
-  // Datos generales del equipo
-  id: "PC-2026-DEV-01",
   marca: "Custom Build",
   modelo: "Workstation Pro",
   anioFabricacion: 2025,
   precioUSD: 2350.50,
   encendida: true,
 
-  // Arreglos simples ([])
   sistemasOperativos: ["Ubuntu 24.04 LTS", "Windows 11 Pro"],
-  perifericosConectados: ["Teclado Mecánico", "Mouse Ergonómico", "Monitor 4K", "Micrófono USB"],
+  perifericosConectados: [
+    "Teclado Mecánico",
+    "Mouse Ergonómico",
+    "Monitor 4K",
+    "Micrófono USB"
+  ],
 
-  // Objeto anidado de Hardware ({})
   hardware: {
     procesador: {
       marca: "AMD",
@@ -23,6 +25,7 @@ const computadora = {
       frecuenciaTurboGhz: 5.6,
       temperaturaActualC: 48.2
     },
+
     memoriaRAM: {
       capacidadTotalGB: 64,
       tipo: "DDR5",
@@ -31,10 +34,9 @@ const computadora = {
       ranurasTotales: 4,
       soportaXMP: true
     },
-    // Arreglo de objetos (múltiples discos de almacenamiento)
+
     almacenamiento: [
       {
-        id: "NVME-1",
         tipo: "SSD NVMe M.2",
         capacidadGB: 1000,
         marca: "Samsung 990 Pro",
@@ -42,7 +44,6 @@ const computadora = {
         usoPrincipal: "Sistema Operativo"
       },
       {
-        id: "NVME-2",
         tipo: "SSD NVMe M.2",
         capacidadGB: 2000,
         marca: "Kingston KC3000",
@@ -50,13 +51,15 @@ const computadora = {
         usoPrincipal: "Proyectos y Juegos"
       }
     ],
+
     tarjetaGrafica: {
       marca: "NVIDIA",
       modelo: "GeForce RTX 4080 Super",
       vramGB: 16,
       tipoVRAM: "GDDR6X",
-      puertosSalida: ["HDMI 2.1", "DisplayPort 1.4a", "DisplayPort 1.4a"]
+      puertosSalida: ["HDMI 2.1", "DisplayPort 1.4a"]
     },
+
     placaBase: {
       fabricante: "ASUS",
       chipset: "B650E",
@@ -64,6 +67,7 @@ const computadora = {
       tieneWifi: true,
       tieneBluetooth: true
     },
+
     fuentePoder: {
       marca: "Corsair",
       vatios: 850,
@@ -72,15 +76,13 @@ const computadora = {
     }
   },
 
-  // Objeto anidado de Red
   red: {
     ipLocal: "192.168.1.45",
     macAddress: "00:1A:2B:3C:4D:5E",
-    velocidadDescargaMbps: 300.0,
+    velocidadDescargaMbps: 300,
     conectadoPorCable: true
   },
 
-  // Arreglo de objetos para Software / Aplicaciones
   softwareInstalado: [
     {
       nombre: "Visual Studio Code",
@@ -102,10 +104,89 @@ const computadora = {
     }
   ],
 
-  // Información del usuario asignado
   propietario: {
     nombre: "José",
     rol: "Desarrollador Backend",
-    permisosAdmin: true
+    permisosAdmin: true,
+    habilidades: [
+      {
+        skill: "Base de datos",
+        herramientas: ["MySQL", "Oracle", "SQLite"]
+      },
+      {
+        skill: "Programación",
+        herramientas: ["JavaScript", "PHP", "Java", "Python"]
+      },
+      {
+        skill: "Sistemas operativos",
+        herramientas: ["Windows", "Linux", "Android"]
+      }
+    ]
   }
 };
+
+
+// Consultar datos
+console.log(computadora.marca);
+console.log(computadora.modelo);
+console.log(computadora.sistemasOperativos[0]);
+console.log(computadora.perifericosConectados.length);
+
+console.log(computadora.hardware.procesador.modelo);
+console.log(computadora.hardware.memoriaRAM.capacidadTotalGB);
+console.log(computadora.hardware.almacenamiento[0].marca);
+console.log(computadora.hardware.almacenamiento[1].capacidadGB);
+
+console.log(computadora.hardware.tarjetaGrafica.modelo);
+console.log(computadora.hardware.placaBase.fabricante);
+console.log(computadora.hardware.fuentePoder.vatios);
+
+console.log(computadora.red.ipLocal);
+console.log(computadora.softwareInstalado[0].nombre);
+console.log(computadora.softwareInstalado[0].extensiones[1]);
+console.log(computadora.propietario.habilidades[1].herramientas);
+console.log(computadora.softwareInstalado.length);
+
+
+// Recorrer arreglos
+computadora.sistemasOperativos.forEach((sistema) => {
+  console.log(sistema);
+});
+
+computadora.hardware.almacenamiento.forEach((disco) => {
+  console.log(disco.marca);
+});
+
+computadora.softwareInstalado.forEach((programa) => {
+  console.log(programa.nombre);
+});
+
+const lista = computadora.propietario.habilidades[0].herramientas;
+
+lista.forEach((herramienta) => {
+  console.log(herramienta);
+});
+
+
+// Condiciones
+if (computadora.encendida == true) {
+  console.log("La computadora está encendida");
+} else {
+  console.log("La computadora está apagada");
+}
+
+if (computadora.hardware.memoriaRAM.capacidadTotalGB >= 32) {
+  console.log("Tiene 32 GB de RAM o más");
+}
+
+computadora.softwareInstalado.forEach((programa) => {
+  if (programa.categoria == "Desarrollo") {
+    console.log(programa.nombre);
+  }
+});
+
+computadora.hardware.almacenamiento.forEach((disco) => {
+  if (disco.capacidadGB >= 2000) {
+    console.log(disco.marca);
+  }
+});
